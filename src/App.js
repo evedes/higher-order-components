@@ -9,7 +9,7 @@ class App extends React.Component {
       <div className="text-center">
         <h2>How to Develop Your React Superpowers</h2>
         <h2>with the HOC Pattern</h2>
-        <Welcome isLoaded={true} user="Eduardo"/>
+        <Welcome isLoaded={false} user="Eduardo"/>
       </div>
     );
   }

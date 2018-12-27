@@ -1,6 +1,6 @@
 import React from 'react';
 
-class WelcomeMessage extends React.Component {
+class Welcome extends React.Component {
   render() {
     return (
       <div>Welcome {this.props.user}</div>
@@ -11,13 +11,15 @@ class WelcomeMessage extends React.Component {
 const withUser = (WrappedComponent) => {
   return class extends WrappedComponent {
     render() {
-      return (
-        <WrappedComponent { ...this.props} />
-      )
+      if (this.props.user) {
+        return (
+          <WrappedComponent { ...this.props} />
+        )
+      }
+      return <div>Welcome Guest!</div>
     }
   }
 }
-
 
 const withLoader = (WrappedComponent) => {
   return class extends WrappedComponent {
@@ -31,4 +33,4 @@ const withLoader = (WrappedComponent) => {
   }
 }
 
-export default withLoader(withUser(WelcomeMessage));
+export default withLoader(withUser(Welcome));
